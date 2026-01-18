@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        form { background: white; padding: 20px; border-radius: 8px; width: 300px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 10px; }
+        button { background: green; color: white; padding: 10px; margin-top: 10px; width: 100%; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<h2>Feedback Form</h2>
+
+<form id="feedbackForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <textarea id="message" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("feedbackForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+
+    // WhatsApp message template
+    let text = `
+Hi — I’m submitting feedback via the website.
+
+Name: ${name}
+Feedback: ${message}
+
+Thanks for taking a look!`;
+
+    // WhatsApp number
+    let number = "7666772181";
+
+    // Open WhatsApp
+    window.open(`https://wa.me/91${number}?text=${encodeURIComponent(text)}`, "_blank");
+});
+</script>
+
+</body>
+</html>
